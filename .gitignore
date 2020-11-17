@@ -1,0 +1,43 @@
+*.py[co]
+*.swp
+*.sqlite
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+# Mac Finder
+*.DS_Store
+
+# pyenv
+/.python-version
+
+/media/
+/dps/local_settings.py
+/tmp/
+
+# ansible
+*.retry
+
+.dist-packages/*
+!.dist-packages/.keep
+
+
+# ignore django site settings
+dps/settings/demo.py
+dps/settings/production.py
+dps/settings/stage.py
+
+# vagrant
+.vagrant/*
+staticfiles/*
+*.log
+
+# vscode
+.vscode/*
+
+# pycharm
+.idea/*

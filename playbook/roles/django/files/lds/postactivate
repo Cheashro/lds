@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export LDS_ENV={{ project.environment }}
+
+source $HOME/django_bash_completion.sh
+
+cd {{ project.path }}

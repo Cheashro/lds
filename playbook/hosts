@@ -1,0 +1,2 @@
+[dev]
+dps-dev ansible_connection=local

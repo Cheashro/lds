@@ -1,0 +1,13 @@
+system:
+  user: ubuntu
+  home_path: /home/ubuntu
+  
+project:
+  name: lds
+  path: /home/ubuntu/lds
+  repo_url: git@gitlab.com:jiarutsai4818/lds.git
+  branch: master
+  path: /home/ubuntu/lds
+  virtualenv_name: lds-py3
+  virtualenv_path: /home/ubuntu/.virtualenvs/lds-py3
+  environment: development

@@ -1,0 +1,9 @@
+- hosts: dev
+  become_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - common
+    - django
+  vars_files:
+    - group_vars/dev

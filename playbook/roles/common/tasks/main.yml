@@ -1,0 +1,65 @@
+---
+- block:
+  - name: Install Console tools
+    apt:
+      name:
+        - htop
+        - screen
+        - vim
+        - tmux
+        - curl
+        - wget
+        - ntp      
+      update_cache: yes
+
+  - name: Install dependence packages
+    apt:
+      name:
+        - python-apt
+        - python-software-properties
+        - software-properties-common
+        - debconf-utils
+        - git-core
+
+  - name: Create locale en_US.UTF-8
+    locale_gen:
+      name: en_US
+      name: en_US.UTF-8
+
+  - name: Set default locale en_US.UTF-8
+    debconf:
+      name: locales
+      question: locales/default_environment_locale
+      value: en_US, en_US.UTF-8
+      vtype: select
+
+  - name: Set timezone
+    timezone:
+      name: Asia/Taipei
+
+  - name: Start cron service
+    service:
+      name: cron
+      enabled: yes
+      state: started
+
+  - name: Start rsyslog service
+    service:
+      name: rsyslog
+      enabled: yes
+      state: started
+
+  - name: Create system user
+    user:
+      name: "{{ system.user }}"
+      home: "{{ system.home_path }}"
+      shell: /bin/bash
+
+  - name: Add system user to sudoer
+    lineinfile:
+      path: /etc/sudoers.d/ubuntu
+      line: 'ubuntu ALL=(ALL) NOPASSWD: ALL'
+      state: present
+      mode: 0440
+      create: yes
+      validate: 'visudo -cf %s'

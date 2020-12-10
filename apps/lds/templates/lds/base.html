@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}人生負債公司{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.css' %}">
+        {% block styles %}{% endblock styles %}
+
+        <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'libs/popper/popper.min.js' %}"></script>
+        <script src="{% static 'libs/bootstrap/js/bootstrap.min.js' %}"></script>
+        {% block scripts %}{% endblock scripts %}
+
+        {% block head %}{% endblock head %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

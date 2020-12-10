@@ -8,9 +8,9 @@
   become_user: "{{ system.user }}"
   become: yes
   when: not virtualenv_exists.stat.exists
-    
+
 - name: Copy postactivate to remote system
-  template: 
+  template:
     src: "roles/django/files/{{ project.name }}/postactivate"
     dest: "{{ project.virtualenv_path }}/bin/postactivate"
     owner: "{{ system.user }}"
@@ -18,7 +18,7 @@
     mode: 0755
 
 - name: Create directory /var/www
-  file: 
+  file:
     path: "/var/www/"
     state: directory
     owner: www-data

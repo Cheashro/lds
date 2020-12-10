@@ -1,7 +1,7 @@
 system:
   user: ubuntu
   home_path: /home/ubuntu
-  
+
 project:
   name: lds
   path: /home/ubuntu/lds

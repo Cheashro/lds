@@ -1,0 +1,27 @@
+repos:
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v2.0.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: \.(js|html)$
+    -   id: flake8
+        args:
+        - --ignore=W503
+        - --ignore=E501
+        additional_dependencies: [flake8-commas]
+    -   id: check-byte-order-marker
+    -   id: requirements-txt-fixer
+    -   id: check-ast
+    -   id: check-yaml
+-   repo: git://github.com/naturalacneclinic/pre-commit-python-sorter
+    rev: 1.0.5
+    hooks:
+    - id: python-import-sorter
+      args: ['--silent-overwrite']
+-   repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.4.2
+    hooks:
+    -   id: autopep8
+        args:
+        - -i
+        - --ignore=E501

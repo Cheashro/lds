@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'apps.bootstrap',
     'apps.lds',
 ]
@@ -141,4 +142,4 @@ STATICFILES_DIRS = (
 
 # Login
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'lds:dashboard'

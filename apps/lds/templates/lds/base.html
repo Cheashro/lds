@@ -1,11 +1,11 @@
-{% load static %}
+{% load static i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %}人生負債公司{% endblock title %}</title>
+        <title>{% block title %}{% trans '人生負債公司' %}{% endblock title %}</title>
         <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.css' %}">
         {% block styles %}{% endblock styles %}
 

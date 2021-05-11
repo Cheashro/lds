@@ -23,7 +23,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name='lds/accounts/login.html'), name='login'),
-    path('session/', include('apps.lds.urls', namespace='lds')),
+    path('lds/', include('apps.lds.urls', namespace='lds')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

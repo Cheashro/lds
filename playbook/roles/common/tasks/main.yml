@@ -12,13 +12,28 @@
         - ntp
       update_cache: yes
 
+  - name: remove python 3.6
+    apt:
+      name:
+        - python3
+      state: absent
+
+  - name: Install python packages
+    apt:
+      name:
+        - python3.7
+        - python3.7-dev
+        - python3.7-distutils
+        - python3-pip
+        - gettext
+        - python3-apt
+      update_cache: yes
+
   - name: Install dependence packages
     apt:
       name:
-        - python-apt
-        - python-software-properties
-        - software-properties-common
-        - debconf-utils
+        - build-essential
+        - libmysqlclient-dev
         - git-core
 
   - name: Create locale en_US.UTF-8
@@ -36,12 +51,6 @@
   - name: Set timezone
     timezone:
       name: Asia/Taipei
-
-  - name: Start cron service
-    service:
-      name: cron
-      enabled: yes
-      state: started
 
   - name: Start rsyslog service
     service:

@@ -1,0 +1,58 @@
+---
+- block:
+  - name: Install Docker tools
+    apt:
+      name:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+      update_cache: yes
+
+  - name: Add Docker GPG key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu bionic stable
+      state: present
+
+  - name: Install Docker
+    apt:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      update_cache: yes
+
+  - name: Add ubuntu to docker group
+    user:
+      name: "ubuntu"
+      group: "docker"
+      append: yes
+
+  - name: Install docker-compose
+    get_url:
+      url : https://github.com/docker/compose/releases/download/1.29.1/docker-compose-Linux-x86_64
+      dest: /usr/local/bin/docker-compose
+      mode: 'u+x,g+x'
+
+  - name: Install docker python package
+    pip:
+      name:
+        - docker
+        - docker-compose
+      executable: pip3
+    become_user: "{{ system.user }}"
+    become: yes
+
+  - name: Deploy docker compose stake
+    docker_compose:
+      project_src: "{{ docker.path }}"
+      files:
+        - docker-compose.yml
+    become_user: "{{ system.user }}"
+    become: yes

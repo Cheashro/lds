@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  db:
+    image: mariadb:10.5
+    restart: always
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: lds
+      MYSQL_USER: lds
+      MYSQL_PASSWORD: 1234
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  app:
+    build: ./lds
+    image: lds
+    container_name: lds
+    restart: always
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    links:
+      - db:db
+    volumes:
+      - ./lds:/lds
+    depends_on:
+      db:
+        condition: service_healthy

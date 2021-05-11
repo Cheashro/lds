@@ -1,4 +1,11 @@
 ---
+- name: Install virtualenv package
+  apt:
+    name:
+      - python-virtualenv
+      - virtualenvwrapper
+    update_cache: yes
+
 - name: Check virtualenv exists
   stat: path={{ project.virtualenv_path }}
   register: virtualenv_exists

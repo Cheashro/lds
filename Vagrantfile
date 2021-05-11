@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/bionic64"
 
   config.vm.hostname = "lds-dev"
 
@@ -65,7 +65,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.limit = "all"
     ansible.playbook = "/home/ubuntu/lds/playbook/lds-dev.yml"
-    ansible.verbose        = true
+    ansible.verbose = true
+    ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
 	ansible.inventory_path ="/home/ubuntu/lds/playbook/hosts"
   end
 end

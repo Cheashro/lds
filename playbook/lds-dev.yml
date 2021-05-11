@@ -5,5 +5,6 @@
   roles:
     - common
     - django
+    - container
   vars_files:
     - group_vars/dev

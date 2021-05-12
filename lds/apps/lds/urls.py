@@ -14,10 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from apps.lds import views
+from apps.lds.views import user as user_views
+from apps.lds.views import dashboard as dashboard_view
 from django.urls import path
 
 app_name = 'lds'
+
 urlpatterns = [
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('user/create/', user_views.create_user, name='create-user'),
+]
+
+urlpatterns += [
+    path('dashboard/', dashboard_view.dashboard, name='dashboard'),
 ]

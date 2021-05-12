@@ -34,12 +34,12 @@ def add_input_classes(field):
     依照不同的 field widget 加上相對應的 class attribute
     """
 
-    field_classes = field.field.widget.attrs.get('class', '')
+    classes = field.field.widget.attrs.get('class', '')
 
-    if 'form-control' not in field_classes:
-        field_classes = f'{field_classes} form-control'
+    classes = f'{classes} form-control'
+    classes = f'{classes} is-invalid' if field.errors else classes
 
-    field.field.widget.attrs['class'] = field_classes.strip()
+    field.field.widget.attrs['class'] = classes.strip()
 
 
 @register.filter

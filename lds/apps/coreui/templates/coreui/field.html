@@ -21,10 +21,6 @@
 
     {{ field }}
 
-    {% if field|is_input_group %}
-        </div>
-    {% endif %}
-
     {% if field.errors %}
         {% for error in field.errors %}
             <div class="invalid-feedback">
@@ -37,5 +33,9 @@
         <span class="help-block">
             {{ field.help_text|safe }}
         </span>
+    {% endif %}
+            
+    {% if field|is_input_group %}
+        </div>
     {% endif %}
 </div>

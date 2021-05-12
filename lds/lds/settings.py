@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'apps.bootstrap',
+    'apps.coreui',
     'apps.lds',
 ]
 

@@ -1,0 +1,41 @@
+{% load coreui %}
+
+<div class="form-group">
+    {% if field.label %}
+        <label>
+            {{ field.label }}
+        </label>
+    {% endif %}
+
+    {% if field|is_input_group %}
+        <div class="input-group">
+    {% endif %}
+
+    {% if field|is_input_group_prepend %}
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="{{ field.field.widget.attrs.input_prepend_icon }}"></i>
+            </span>
+        </div>
+    {% endif %}
+
+    {{ field }}
+
+    {% if field|is_input_group %}
+        </div>
+    {% endif %}
+
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <div class="invalid-feedback">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if field.help_text %}
+        <span class="help-block">
+            {{ field.help_text|safe }}
+        </span>
+    {% endif %}
+</div>

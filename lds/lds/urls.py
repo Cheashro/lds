@@ -20,9 +20,13 @@ from django.contrib.auth import views as auth_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 
+from apps.lds.forms.auth import LDSAuthenticationForm
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name='lds/accounts/login.html'), name='login'),
+    path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user=True,
+                                                         template_name='lds/accounts/login.html',
+                                                         authentication_form=LDSAuthenticationForm), name='login'),
     path('lds/', include('apps.lds.urls', namespace='lds')),
 ]
 

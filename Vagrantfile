@@ -63,10 +63,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "ansible_local" do |ansible|
+    ansible.become = true
     ansible.limit = "all"
     ansible.playbook = "/home/ubuntu/lds/playbook/lds-dev.yml"
     ansible.verbose = true
     ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3" }
-	ansible.inventory_path ="/home/ubuntu/lds/playbook/hosts"
+    ansible.inventory_path ="/home/ubuntu/lds/playbook/hosts"
   end
 end

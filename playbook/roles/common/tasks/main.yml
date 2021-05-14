@@ -12,30 +12,25 @@
         - ntp
       update_cache: yes
 
-  - name: remove python 3.6
-    apt:
-      name:
-        - python3
-      state: absent
-
   - name: Install python packages
     apt:
       name:
         - python3.7
         - python3.7-dev
         - python3.7-distutils
-        - python3-pip
-        - gettext
-        - python3-apt
       update_cache: yes
 
   - name: Install dependence packages
     apt:
       name:
+        - python3-pip
+        - gettext
+        - python3-apt
         - build-essential
         - mysql-client
         - libmysqlclient-dev
         - git-core
+      update_cache: yes
 
   - name: Create locale en_US.UTF-8
     locale_gen:

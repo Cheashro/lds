@@ -1,5 +1,27 @@
-{% extends 'lds/login_base.html' %}
+{% extends 'lds/front_base.html' %}
+{% load i18n %}
 
 {% block main_content %}
-    Weeeeeeeeeeeed!
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-accent-secondary">
+                    <div class="card-header">
+                        <h3>{% trans '本日待完成項目' %}</h3>
+                    </div>
+                    <div class="card-body">
+                        {% trans '本日沒有需要完成的項目' %}
+                    </div>
+                </div>
+                <div class="card card-accent-secondary">
+                    <div class="card-header">
+                        <h3>{% trans '已完成的項目' %}</h3>
+                    </div>
+                    <div class="card-body">
+                        {% trans '沒有任何已完成的項目' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

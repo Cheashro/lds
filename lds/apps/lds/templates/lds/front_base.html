@@ -1,0 +1,13 @@
+{% extends 'lds/base.html' %}
+
+{% block content %}
+    {% include 'lds/sidebar.html' %}
+    <div class="c-wrapper c-fixed-components">
+        {% include 'lds/navbar.html' %}
+        <div class="c-body">
+            <main class="c-main">
+                {% block main_content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+{% endblock %}

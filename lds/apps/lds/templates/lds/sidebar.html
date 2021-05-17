@@ -1,12 +1,18 @@
-<div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Test</a>
-            </li>
-        </ul>
+{% load i18n %}
+
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <div class="c-sidebar-brand d-lg-down-none">
+        {% trans '人生負債清單' %}
     </div>
+    <ul class="c-sidebar-nav ps ps--active-y">
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{% url 'lds:dashboard' %}">
+                <div class="c-sidebar-nav-icon">
+                    <i class="cil-speedometer"></i>
+                </div>
+                Dashboard
+            </a>
+        </li>
+    </ul>
+    <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="#sidebar" data-class="c-sidebar-minimized"></button>
 </div>

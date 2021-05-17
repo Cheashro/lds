@@ -1,10 +1,35 @@
 {% load i18n %}
 
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{% url 'lds:dashboard' %}">{% trans '人生負債公司' %}</a>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">{% trans 'Log out' %}</a>
-    </li>
-  </ul>
-</nav>
+<header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+    <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
+        <i class="cil-menu"></i>
+    </button>
+    <ul class="c-header-nav d-md-down-none">
+        <li class="c-header-nav-item px-3">
+          <a class="c-header-nav-link" href="{% url 'lds:dashboard' %}">Dashboard</a>
+        </li>
+    </ul>
+    <ul class="c-header-nav ml-auto mr-4">
+        <li class="c-header-nav-item dropdown">
+            <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <div class="c-avatar">
+                    <div class="icon-x4">
+                        <i class="cil-smile"></i>
+                    </div>
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right pt-0">
+                <a class="dropdown-item" href="#">
+                    <i class="cil-user"></i>Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="cil-settings"></i>Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                    <i class="cil-account-logout"></i>Logout
+                </a>
+            </div>
+        </li>
+    </ul>
+</header>
